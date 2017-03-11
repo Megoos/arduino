@@ -68,6 +68,38 @@ void five(){
       }
   }
 
+void six(){
+  for(int i = 6; i < 13; i++)
+    if(i==7){
+    digitalWrite(i,LOW);
+    }else{
+       digitalWrite(i,HIGH);
+      }
+  }  
+
+void seven(){
+  for(int i = 6; i < 13; i++)
+    if(i!=7 && i!=8 && i!=6){
+    digitalWrite(i,LOW);
+    }else{
+       digitalWrite(i,HIGH);
+      }
+  }
+
+void eight(){
+  for(int i = 6; i < 13; i++)    
+       digitalWrite(i,HIGH);      
+  }
+
+void nine(){
+  for(int i = 6; i < 13; i++)
+    if(i==10){
+    digitalWrite(i,LOW);
+    }else{
+       digitalWrite(i,HIGH);
+      }
+  }  
+  
 void digit(int d, int c){
   switch (d){
     case 1:
@@ -102,9 +134,17 @@ void digit(int d, int c){
             break;
     case 5: five();
             break; 
+    case 6: six();
+            break;  
+    case 7: seven();
+            break;
+    case 8: eight();
+            break;
+    case 9: nine();
+            break();       
     case 11: none();
             break; 
-     default : none(); break;              
+    default : none(); break;              
     }  
       delay(5);
   }  
@@ -125,16 +165,12 @@ unsigned long prev_ms = 0;
 void loop() {
 
   
- if ((millis() - prev_ms) >  1500) { //вывод данных каждые 500мс
-
+ if ((millis() - prev_ms) >  1500) { //вывод данных каждые 1500мс
         prev_ms = millis();
         i++;
-
     }
 
-
 vivod(i);
-
 
 // for (int i = 1; i < 4; i++)
 //  digit(i,i);
