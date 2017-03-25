@@ -141,7 +141,7 @@ void digit(int d, int c){
     case 8: eight();
             break;
     case 9: nine();
-            break();       
+            break;       
     case 11: none();
             break; 
     default : none(); break;              
@@ -153,27 +153,31 @@ void vivod (int mun){
 
 int del = 100;
 int st = 0;
-  for (int i = 1; i < 4; i++){
-    st = mun/del;
-       digit(i,st);
-       mun = mun-st*del;
+int i=1;
+if(mun<100){
+  digit(i,11);  
+  del=del/10;
+  i=2;   
+}
+if(mun<10){
+  digit(i,11);
+  del=del/10;
+  i=3;
+  }
+  for (i; i < 4; i++){       
+       st = mun/del;
+       mun = mun-st*del; 
+       digit(i,st);       
        del=del/10;
      }
   }
-int i = 100;
-unsigned long prev_ms = 0;
-void loop() {
 
-  
- if ((millis() - prev_ms) >  1500) { //вывод данных каждые 1500мс
-        prev_ms = millis();
+int i = 25;
+unsigned long prev_ms = 0;
+void loop() {  
+ if ((millis() - prev_ms) >  500) { //вывод данных каждые 1500мс
+        prev_ms = millis();        
         i++;
     }
-
 vivod(i);
-
-// for (int i = 1; i < 4; i++)
-//  digit(i,i);
-  // put your main code here, to run repeatedly:
-
 }
